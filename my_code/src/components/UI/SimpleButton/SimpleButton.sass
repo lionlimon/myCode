@@ -1,0 +1,120 @@
+@import '../../../variables'; 
+
+@keyframes loading
+  0%
+    transform: translate(20%, -50%)
+    
+    
+  100%
+    transform: translate(-120%, -50%)
+    
+    
+
+.simple-button 
+  border: none 
+  line-height: 1
+  margin: 0
+  padding: 0
+  background-color: transparent
+  color: #ffffff
+  text-decoration: none
+  font-size: 15px
+  font-weight: 700
+  display: inline-flex 
+  align-items: center 
+  justify-content: center 
+  cursor: pointer
+  text-align: center
+  height: 40px
+  border-radius: 29px
+  transition: all .25s
+  box-shadow: 0 3px 5px 2px rgba(#000, .2)
+  padding: 0 35px
+  position: relative
+  overflow: hidden
+  text-transform: uppercase
+  z-index: 1
+  outline: none
+
+
+  &:before 
+    z-index: -1
+    border-radius: 29px
+    content: ''
+    position: absolute
+    top: 0
+    transition: all .8s
+    right: 0
+    left: 0
+    bottom: 0
+    background-color: rgba($accent, .90)
+
+  
+
+  &_wide 
+    width: 100%
+    display: flex
+
+  &:hover, &:focus 
+    transform: translate(0, 1px)
+
+    &:before 
+      
+      background-color: rgba($accent, 1)
+
+  &_loading
+    color: transparent
+    box-shadow: none
+    
+    &:hover, &:focus 
+      color: transparent 
+      outline: none
+    
+      &::before 
+        // background-color: transparent
+
+
+    &::before
+      transform: translate(100%, 0)
+
+    &:after 
+      background-image: linear-gradient(35deg, #3bc6f8, #ff6b51)
+      position: absolute
+      content: ''
+      top: 50%
+      width: 100%
+      height: 41px
+      transform: translate(120%, -50%)
+      left: 50%
+      border-radius: 29px
+      transition: all 1s
+      animation: 1s loading .3s infinite alternate ease-in-out
+      background-color: #77BDD7 
+      
+  &_dark 
+    font-size: 18px
+    font-weight: 400
+    text-transform: none
+    &::before 
+      background-color: #242323
+    
+    &:hover 
+      &::before 
+        background-color: #242323
+
+  &_mint 
+    &:hover, &:focus
+      &::before 
+        background-color: $mint
+
+    &::before 
+      background-color: rgba($mint, .9)
+
+  &_purple
+    &:hover, &:focus
+      &::before 
+        background-color: $purple
+
+    &:before 
+      background-color: rgba($purple, .9)
+    

@@ -1,0 +1,133 @@
+@import '../../variables'
+	
+.top-content-nav 
+	padding-top: 38px
+	padding-bottom: 40px
+	display: flex 
+	align-items: center
+	justify-content: space-between
+	.mini-list 
+		margin-left: 20px
+
+		&.active 
+			
+			.mini-list__item 
+				pointer-events: auto
+				transform: translate(0, 0)
+				opacity: 1
+
+		&__item
+			background-color: transparent
+			transition: all .25s
+			opacity: 0
+			pointer-events: none
+			transform: translate(0, -100%)
+			
+			
+
+			&:nth-child(1)
+				transition: .3s all 0s 
+			
+			&:nth-child(2)
+				transition: .3s all .15s 
+			
+			&:nth-child(3)
+				transition: .3s all .3s 
+
+			&:not(:last-child)
+				margin-right: 15px
+
+	&__user-img 
+		margin-left: 20px
+
+	&__right 
+		display: flex 
+		align-items: center
+		position: relative
+
+
+
+
+.top-list 
+	margin: 0
+	list-style: none 
+	padding-left: 0px
+	font-size: 25px
+	transition: all .25s
+
+	
+	&__link 
+		color: #999999
+		font-weight: 30
+		// text-transform: uppercase
+		text-decoration: none
+		transition: color $tr
+		&.active, &:hover 
+			color: #ffffff
+
+	&__item 
+		transition: all .25s
+		display: inline-block
+		margin-right: 20px
+		position: relative
+		&:last-child
+			margin-right: 0
+
+	&__button 
+		color: #999999
+		transition: color $tr, transform $tr
+		display: inline-block
+		font-size: 30px
+		transform: translate(0, 3px)
+		outline: none
+		background-color: transparent
+		border: none
+		font-weight: 300
+		margin-left: 0px
+		text-decoration: none
+		cursor: pointer
+		font-weight: 200
+
+		&.active 
+			transform: translate(0, 3px) rotate(45deg)
+
+		&:hover, &:focus
+			color: #ffffff
+			outline: none
+
+	&__add-block
+		position: absolute
+		top: 0
+		left: 40px
+		width: 400px
+		
+
+	&__form-input
+		margin-top: 20px
+
+	&__form-buttons 
+		margin-top: 20px
+		text-align: right
+
+	&__tag
+		margin-right: 5px
+
+		&:last-child
+			margin-right: 0
+
+.tli-enter 
+	transform: scale(0)
+	transition: all .3s
+	&-active 
+		transform: scale(1.1)
+		
+		
+
+.tli-leave 
+	transform: translate(0, 0px)
+	transition: all .5s
+	&-active 
+		transform: translate(100px, -20px) rotate(10deg)
+		opacity: 0
+
+

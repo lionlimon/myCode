@@ -1,0 +1,72 @@
+@import '../../../variables';
+  
+.modal-notify-wrap
+  position: fixed
+  right: 40px
+  z-index: 999999
+  bottom: 40px
+
+.modal-notify 
+  display: flex
+   
+  cursor: pointer
+  align-items: center 
+  max-width: 500px
+  font-size: 15px
+  color: #ffffff
+  transition: all .4s, height 
+  border-radius: 24px
+  position: relative
+  margin-bottom: 20px
+  opacity: 0
+  transform: translate(100%, 0)
+  background-color: #212121
+  
+  &_visible 
+    opacity: 1
+    transform: translate(0, 0)
+
+  &:after 
+    content: ''
+    position: absolute
+    top: 0
+    left: 0
+    width: 100px
+    z-index: 0
+    bottom: 0
+    background-color: $red
+    border-radius: 24px 0 0 24px
+
+  &__icon-wrap 
+    font-size: 30px
+    display: flex 
+    justify-content: center 
+    padding: 0 34px
+    height: 100%
+    align-items: center
+    position: relative
+    z-index: 1
+
+
+  &__info 
+    padding: 20px 32px 20px 15px 
+    text-align: left
+
+
+.notify-enter 
+	opacity: 0
+  transform: translate(0, 0)
+	transition: all .3s
+	&-active 
+		transform: translate(20%, 0)
+    opacity: 1
+		
+
+.notify-leave 
+	transform: translate(20%, 0)
+	transition: all .3s
+  opacity: 1
+
+	&-active 
+		transform: translate(0%, 0)
+		opacity: 0

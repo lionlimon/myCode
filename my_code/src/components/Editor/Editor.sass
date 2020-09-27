@@ -1,0 +1,105 @@
+@import '../../variables'
+	
+// Editor
+.editor 
+	height: calc( 100vh - 200px )
+	max-width: 100%
+	display: flex
+	
+	// overflow: hidden
+	position: relative
+	
+	border-radius: 12px 20px 20px 12px
+	// background-color: transparent
+	box-shadow: 0px 3px 10px 5px rgba(0, 0, 0, 0.1)
+
+
+	&.fullscreen 
+		position: fixed 
+		top: 0
+		margin: 0
+		left: 0
+		right: 0
+		bottom: 0
+		width: 100vw
+		z-index: 999999
+		height: 100vh
+		max-height: 100vh
+		max-width: 100%
+		border-radius: 0 
+
+		.ace-tomorrow-night, .ace_editor, .editor__panel
+			border-radius: 0 
+
+
+
+	// Customize 
+	
+
+	.ace_gutter 
+		background-color: $light
+		z-index: 1
+	
+
+	
+		
+
+	.ace_layer.ace_gutter-layer.ace_folding-enabled, .ace_gutter 
+		max-width: 100%
+		width: 100%
+
+	.ace_gutter-cell 
+		padding-left: 8px
+
+	.ace_scrollbar 
+		opacity: 0
+
+	
+
+	&__area 
+		will-change: width 
+		transition: width $tr
+		height: 100%
+		width: 100%
+		overflow: hidden
+
+	&__panel 
+		background-color: #212121
+		padding: 15px 4px
+		position: absolute
+		top: 0
+		right: 0
+		bottom: 0
+		box-shadow: 0px 3px 10px 5px rgba(0, 0, 0, 0.1)
+		border-radius: 20px
+		z-index: 8
+		
+
+	&__controls 
+		list-style: none
+		padding: 0
+		margin: 0 
+		
+		
+	&__control:not(last-child)
+		margin-bottom: 15px
+
+
+	&__button
+		text-align: center
+		color: #bbbbbb
+		background-color: transparent
+		border: none
+		transition: all $tr
+		cursor: pointer
+		outline: none
+		line-height: 1
+
+		
+
+		&:hover,&:focus  
+			color: $accent
+			
+.ace-tomorrow-night, .ace_editor
+	border-radius: 12px 20px 20px 12px
+	background-color: #1d1d1d

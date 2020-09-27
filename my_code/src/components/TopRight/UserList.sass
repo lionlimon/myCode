@@ -1,0 +1,75 @@
+@import '../../variables'
+
+.user-menu 
+	z-index: 10
+	position: absolute
+	background-color: $light
+	width: 255px
+	list-style: none 
+	margin: 0
+	padding: 0
+	padding: 15px
+	overflow: hidden
+	padding-top: 80px
+	border-radius: 20px
+	padding-bottom: 0
+	top: -15px
+	left: -18px
+	box-shadow: 0px 3px 10px 5px rgba(0, 0, 0, 0.1)
+	transition: all .3s, opacity .15s  
+	transform: translate(0, -10px) scale(.5) rotate(5deg)
+	opacity: 0
+	pointer-events: none
+	&__link 
+		font-size: 18px
+		color: #c1c3c4
+		transition: all .25s
+
+		&:hover 
+			color: $accent
+
+	&__exit 
+		text-align: center
+		margin-left: -15px
+		margin-right: -15px
+		margin-top: 10px
+		&-link 
+			display: flex 
+			align-items: center
+			padding-left: 15px 
+			padding-right: 15px
+			justify-content: space-between
+			background-color: #1E1E1E
+			padding-top: 5px
+			padding-bottom: 5px
+			color: #686b6d
+		
+	&.open 
+		opacity: 1
+		transform: translate(0, 0) scale(1)
+		pointer-events: auto 
+
+.main-user 
+	z-index: 11
+
+	&__img 
+		height: 58px
+		width: 58px
+		background-color: #292929
+		border-radius: 50%
+		display: flex
+		box-shadow: 0px 3px 10px 5px rgba(0, 0, 0, 0.1)
+		color: $text
+		text-transform: uppercase 
+		font-size: 25px
+		align-items: center
+		cursor: pointer
+		user-select: none
+		justify-content: center
+
+
+.logo 
+	&-wrap 
+		display: block
+		width: 140px
+		z-index: 11

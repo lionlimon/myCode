@@ -1,0 +1,30 @@
+@import '../../../variables'
+  
+.mini-button
+	background-color: #333333
+	padding: 8px 15px
+	color: #888888
+	border-radius: 15px
+	font-size: 15px
+	font-weight: 600
+	transition: all $tr
+
+	& + & 
+		margin-left: 15px
+
+	&:hover 
+		background-color: #434242
+
+	&_red 
+		background-color: rgba($red, .8)
+		color: rgba(#fff, .8)
+
+		&:hover 
+			background-color: $red
+
+	&_blue 
+		background-color: rgba($accent, .8)
+		color: rgba(#fff, .8)
+
+		&:hover 
+			background-color: $accent

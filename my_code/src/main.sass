@@ -1,0 +1,158 @@
+@import 'variables'
+
+@mixin font($f-name, $f-style, $f-weight, $f-url)
+	@font-face
+		font-family: $f-name
+		font-style: $f-style
+		font-weight: $f-weight
+		src: url($f-url) format('woff2')
+
+
+@include font('Roboto', normal, 400, './fonts/roboto-regular-webfont.woff2')
+@include font('Roboto', italic, 400, './fonts/roboto-italic-webfont.woff2')
+@include font('Roboto', normal, 700, './fonts/roboto-bold-webfont.woff2')
+@include font('Roboto', italic, 700, './fonts/roboto-bolditalic-webfont.woff2')
+@include font('Roboto', normal, 300, './fonts/Roboto-Light.woff')
+
+
+
+a 
+	text-decoration: none 
+	color: $accent
+
+img
+	max-width: 100%
+
+::placeholder
+	color: #666
+
+::selection
+	background-color: $accent
+	color: #fff
+
+input, textarea
+	outline: none
+	// &:focus:required:invalid
+	// 	border-color: red
+	// &:required:valid
+	// 	border-color: green
+
+* 
+	box-sizing: border-box
+
+body
+	font-size: 16px
+	background-color: $bgcolor	
+	min-width: 320px
+	position: relative
+	line-height: 1.65
+	font-family: 'Roboto', sans-serif
+	overflow-x: hidden
+	color: $text
+	
+.modals 
+	position: fixed 
+	right: 0
+	bottom: 0
+	z-index: 0
+	position: relative
+
+.main 
+	height: 100vh
+	min-width: 100vw
+
+// Buttons 
+
+// Сброс
+.btnclr 
+	background-color: transparent 
+	display: inline-block
+	color: #ffffff
+	text-decoration: none
+	border: none
+	padding: 0
+	margin: 0
+	cursor: pointer
+	vertical-align: middle
+	line-height: 1
+	outline: none
+
+	&:hover 
+		text-decoration: none
+
+.wide 
+	width: 100%
+		
+
+// Scroll 
+
+.scroll-area 
+	width: 100%
+	height: 100vh
+	border-radius: 20px
+	
+
+// Формы
+
+
+.button-add
+	background-color: #ffffff
+	background-image: linear-gradient(45deg, #09c0b7, #1ebef9)
+	// padding: 0px 13px 0px 20px
+	color: #ffffff
+	text-transform: uppercase
+	font-size: 14px
+	width: 100%
+	height: 100%
+	line-height: 41px
+	white-space: nowrap
+	height: 41px
+	z-index: 2
+	display: flex
+	align-items: center
+	justify-content: center
+	font-weight: bold
+	transition: all .25s
+	opacity: .9
+
+	&__icon 
+		margin-left: 25px
+		float: right
+		color: #fff
+		font-size: 18px
+		vertical-align: middle
+		line-height: 41px
+		display: inline-block
+		height: 41px
+	&:hover, &:focus 
+		color: #fff
+		background-image: linear-gradient(-45deg, #09c0b7, #1ebef9)
+
+
+
+
+
+.content
+	position: absolute
+	top: 0
+	left: 0
+	bottom: 0
+	right: 300px
+	padding: 0 70px
+	padding-bottom: 20px
+	padding-top: 20px
+	transform: translate($sidebar, 0)
+	transition: all $tr
+	&.hidden-side
+		right: 0
+		transform: translate(0, 0)
+		
+
+
+
+// snippets tabs 
+
+.snippet 
+	display: none
+	&.active
+		display: block

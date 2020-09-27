@@ -1,0 +1,238 @@
+@import '../../variables'
+
+// Sidebar
+.sidebar
+	background-color: $dark
+	width: $sidebar
+	flex-shrink: 0
+	z-index: 3
+	will-change: transform
+	height: 100%
+	box-shadow: 0px 0px 10px rgba(#000, .2)
+	position: absolute
+	left: 0
+	top: 0
+	transition: transform $tr, box-shadow .5s 
+	transform: translateX(-0%)
+	
+	&__bottom 
+		// position: absolute
+		// bottom: 0
+		// left: 0
+		// right: 0
+		// overflow: hidden
+
+	&__hover-line 
+		position: absolute
+		top: 0
+		cursor: pointer
+		bottom: 0
+		right: -15px
+		width: 15px
+
+	&.hover.hidden 
+		box-shadow: $neonShadow
+
+
+	&.hidden 
+		transform: translateX(-100%)
+		
+		.sidebar__button-icon 
+			transform: translate(calc(-50% + 12px), -50%) rotate(0deg)
+
+	&__head
+		margin: 0 0 5px 20px
+		padding-top: 18px
+	
+	&__pre-title, &__title
+		color: $accent
+
+	&__pre-title
+		margin: 0
+		font-size: 13px
+		font-weight: bold
+
+	&__title
+		line-height: 1.1
+		margin: 0
+		padding: 0
+		font-weight: 300
+		font-size: 21px
+		-ms-word-break: break-all
+		word-break: break-all
+		word-break: break-word
+	
+	&__button 
+		background-color: $dark
+		width: 65px
+		box-shadow: 0px 0px 5px rgba(#000, .2)
+		height: 65px
+		position: absolute 
+		top: 45px
+		transition: all .5s
+		right: 30px
+		display: block
+		transform: translate(100% , 0)
+		cursor: pointer
+		border-radius: 0 50% 50% 0 
+
+	// подложка закрывает лишнюю тень
+	&__button:after 
+		content: ''
+		position: absolute
+		height: calc( 100% + 28px )
+		width: 45px
+		left: -17px
+		top: 50%
+		transition: all .5s
+		transform: translate(0, -50%)
+		background-color: $dark
+
+	&__button:hover, &__button.hover
+		box-shadow: $neonShadow
+
+	&__button-icon 
+		position: absolute
+		top: 50%
+		font-size: 20px
+		left: 50%
+		transition: transform .3s
+		transform: translate(calc(-50% + 12px), -50%) rotate(180deg)
+
+	&__add 
+		position: absolute
+		height: 50px
+		bottom: 0px
+		left: 0px
+		right: 0px
+	
+	// sideabar
+	&__add-form 
+		// position: absolute
+		bottom: 0
+		left: 0
+		width: 100%
+		border-radius: 0
+		
+
+
+
+// Left menu 
+.left-menu
+	position: relative
+	z-index: 1
+	overflow-y: auto
+	-ms-overflow-style: none
+	overflow: -moz-scrollbars-none
+	background-color: $dark
+
+
+
+	&__remove-component
+		position: absolute
+		
+		right: 18px
+		top: 50%
+		transform: translate(0, -50%)
+		transition: all .25s 
+		opacity: 0
+		color: $lightgrey
+		
+		z-index: 1
+		&:hover 
+			color: $red
+
+	&::-webkit-scrollbar
+		width: 0
+
+	&__list, &__item, &__second-list
+		list-style: none
+		margin: 0
+		padding: 0
+
+	&__link, &__second-list-link
+		color: #C7C7C7
+		text-decoration: none
+		text-transform: capitalize
+		font-size: 16x
+		font-weight: 400
+		display: block
+		vertical-align: middle
+
+		&:hover
+			text-decoration: none
+			color: #C7C7C7
+
+			
+
+	&__item
+		border-bottom: 1px solid $bgcolor 
+		
+	&__second-list
+		display: none
+
+	&__item_opened:after
+		content: '/>'
+		margin-left: 23px
+		font-weight: bold
+		color: $lightgrey
+		font-size: 22px
+
+	&__link
+		border-bottom: 1px solid transparent
+		display: block
+		width: 100%
+		padding: 8px 20px
+		transition: background-color .25s
+		position: relative
+		&_opened
+			border-bottom: 1px solid #161616
+		
+		&:after 
+			content: '<.../>'
+			font-size: 22px
+			font-weight: bold
+			color: $accent
+			margin-left: 21px
+			opacity: 0
+			transition: opacity .25s
+		
+		&:hover
+			background-color: $light
+			.left-menu__remove-component 
+				
+				opacity: 1
+			&:after
+				opacity: 1
+		
+		&_opened:after
+			content: '<'
+			opacity: 1
+			color: $lightgrey
+
+	&__second-list-link
+		padding: 8px 36px
+		padding-right: 15px
+		border-right: 4px solid transparent
+		position: relative
+		transition: all .25s
+		display: flex 
+		align-items: center 
+		justify-content: space-between
+
+
+		&:hover
+			border-color: $accent
+			background-color: $light
+
+			.left-menu__remove-item 
+				opacity: 1
+
+	&__remove-item 
+		transition: all .25s 
+		opacity: 0
+		color: $lightgrey
+		position: relative
+		z-index: 1
+		&:hover 
+			color: $red
